@@ -20,6 +20,7 @@ public class Post {
     @Size(max=30)
     private String password;
     private LocalDate created;
+    private String imgUrl;
     @OneToMany
     @JoinTable(name = "post_replies",
             joinColumns= @JoinColumn(name = "post_id"),
@@ -72,5 +73,13 @@ public class Post {
 
     public void setCreated(LocalDate created) {
         this.created = created;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 }

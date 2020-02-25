@@ -16,6 +16,7 @@ public class Reply {
     @Size(max=30)
     private String password;
     private LocalDate created;
+    private String imgUrl;
 
     public Long getId() {
         return id;
@@ -47,5 +48,13 @@ public class Reply {
 
     public void setCreated(LocalDate created) {
         this.created = created;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 }
