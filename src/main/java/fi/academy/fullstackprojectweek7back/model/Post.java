@@ -3,6 +3,7 @@ package fi.academy.fullstackprojectweek7back.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,6 +19,7 @@ public class Post {
     private String text;
     @Size(max=30)
     private String password;
+    private LocalDate created;
     @OneToMany
     @JoinTable(name = "post_replies",
             joinColumns= @JoinColumn(name = "post_id"),
@@ -62,5 +64,13 @@ public class Post {
 
     public void setReplies(Set<Reply> replies) {
         this.replies = replies;
+    }
+
+    public LocalDate getCreated() {
+        return created;
+    }
+
+    public void setCreated(LocalDate created) {
+        this.created = created;
     }
 }
