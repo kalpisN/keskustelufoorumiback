@@ -16,7 +16,7 @@ public class Topic {
     private Long id;
     @Size(max=50)
     private String name;
-    @OneToMany
+    @OneToMany(cascade=CascadeType.ALL)
     @JoinTable(name = "topic_posts",
             joinColumns= @JoinColumn(name = "topic_id"),
             inverseJoinColumns = @JoinColumn(name = "post_id"))
@@ -45,5 +45,8 @@ public class Topic {
 
     public void setPosts(Set<Post> posts) {
         this.posts = posts;
+    }
+    public void addPost(Post post) {
+        this.posts.add(post);
     }
 }

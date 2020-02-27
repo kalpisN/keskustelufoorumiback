@@ -4,6 +4,7 @@ package fi.academy.fullstackprojectweek7back.model;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,9 +20,9 @@ public class Post {
     private String text;
     @Size(max=30)
     private String password;
-    private LocalDate created;
+    private LocalDateTime created;
     private String imgUrl;
-    @OneToMany
+    @OneToMany(cascade=CascadeType.ALL)
     @JoinTable(name = "post_replies",
             joinColumns= @JoinColumn(name = "post_id"),
             inverseJoinColumns = @JoinColumn(name = "reply_id"))
@@ -67,11 +68,12 @@ public class Post {
         this.replies = replies;
     }
 
-    public LocalDate getCreated() {
+
+    public LocalDateTime getCreated() {
         return created;
     }
 
-    public void setCreated(LocalDate created) {
+    public void setCreated(LocalDateTime created) {
         this.created = created;
     }
 
@@ -82,4 +84,5 @@ public class Post {
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
     }
+
 }

@@ -3,6 +3,7 @@ package fi.academy.fullstackprojectweek7back.model;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name="reply")
@@ -15,7 +16,7 @@ public class Reply {
     private String text;
     @Size(max=30)
     private String password;
-    private LocalDate created;
+    private LocalDateTime created;
     private String imgUrl;
 
     public Long getId() {
@@ -42,11 +43,11 @@ public class Reply {
         this.password = password;
     }
 
-    public LocalDate getCreated() {
+    public LocalDateTime getCreated() {
         return created;
     }
 
-    public void setCreated(LocalDate created) {
+    public void setCreated(LocalDateTime created) {
         this.created = created;
     }
 

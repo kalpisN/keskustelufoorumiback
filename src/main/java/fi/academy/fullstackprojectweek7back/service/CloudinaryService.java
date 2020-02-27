@@ -28,7 +28,14 @@ public class CloudinaryService {
     }
 
     private File convertMultiPartToFile(MultipartFile file) throws IOException {
-        File convFile = new File(file.getOriginalFilename());
+        String name = "";
+        if (file.getOriginalFilename() == null || file.getOriginalFilename().isEmpty()) {
+          name = "image";
+        }
+        else {
+            name = file.getOriginalFilename();
+        }
+        File convFile = new File(name);
         FileOutputStream fos = new FileOutputStream(convFile);
         fos.write(file.getBytes());
         fos.close();
